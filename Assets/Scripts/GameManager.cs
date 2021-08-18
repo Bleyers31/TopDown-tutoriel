@@ -1,0 +1,168 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class GameManager : MonoBehaviour
+{
+    //Permet de rendre ce GameManager accessible depuis nimporte quel autre script 
+    //Pour l'appeller, faire GameManager.instance
+    public static GameManager instance;
+    private void Awake(){
+        //Si il y a déjà une instance de GameManager, on s'auto détruit pour qu'il ne reste que l'autre
+        if(GameManager.instance != null){
+            Destroy(gameObject);
+            return;
+        }
+
+        //Si on souhaite supprimer les données sauvegardées : PlayerPrefs.DeleteAll();
+
+        instance = this;
+        SceneManager.sceneLoaded += LoadState;
+        //Permet de faire suivre le GameManager quelque soit les scènes 
+        //sans avoir besoin de l'ajouter manuellement sur chaque
+        DontDestroyOnLoad(gameObject);
+    }
+
+    //Ressources
+    public List<Sprite> playerSprites;
+    public List<Sprite> weaponSprites;
+    public List<int> weaponPrices;
+    public List<int> xpTable;
+
+    //Références
+    public Player player;
+    public Weapon weapon;
+
+    //Boite de dialogue
+    public FloatingTextManager floatingTextManager;
+
+    //Logic -> les attributs du joueur
+    public int moula;
+    public int experience;
+
+
+    public void ShowText(string message, int fontSize, Color color, Vector3 position, Vector3 motion, float duration){
+        floatingTextManager.Show(message, fontSize, color, position, motion, duration);
+    }
+
+
+    //On upgrade l'arme si les conditions sont remplies
+    public bool TryUpgradeWeapon(){
+        //Est-ce que l'arme est à son niveau maximum?
+        if(weaponPrices.Count <= weapon.weaponLevel){
+            return false;
+        }
+
+        //Est-ce qu'on a assez de moula pour améliorer l'arme?
+        if(moula >= weaponPrices[weapon.weaponLevel]){
+            //On déduit la quantitée de moula demandée et upgrade l'arme
+            moula -= weaponPrices[weapon.weaponLevel];
+            weapon.UpgradeWeapon();
+            return true;
+        }
+
+        return false;
+    }
+
+
+    //Récupération du level actuel du joueur
+    public int GetCurrentLevel(){
+        int level = 0;
+        int experienceRequiredNextLevel = 0;
+
+        while(experience >= experienceRequiredNextLevel){
+            //on ajoute l'xp necessaire pour le prochain niveau
+            experienceRequiredNextLevel += xpTable[level];
+            //on ajoute 1 au niveau du joueur
+            level++;
+        
+            //Est-ce que l'on est au niveau max?
+            if(level == xpTable.Count){
+                return level;
+            }
+        }
+
+        return level;
+    }
+
+
+    //Retourne l'xp necessaire pour atteindre le niveau en paramètre
+    public int GetXpToLevel(int levelAsked){
+        int level = 0;
+        int xp = 0;
+
+        while(level < levelAsked){
+            xp += xpTable[level];
+            level++;
+        }
+
+        return xp;
+    }
+    
+    //Quand on gagne de l'xp, on vérifie si on a level up et en applique les effets si c'est le cas 
+    public void GrantXp(int xp){
+        int currentLevel = GetCurrentLevel();
+        experience += xp;
+        if(currentLevel < GetCurrentLevel()){
+            OnLevelUp();
+        }
+    }
+
+    
+
+    public void OnLevelUp(){
+        Debug.Log("LEVEL UP");
+        player.OnLevelUp();
+    }
+
+    //Fonctions de sauvegarde
+    /*
+    * INT preferedSkin
+    * INT moula
+    * INT experience
+    * INT weaponLevel
+    */
+    public void SaveState(){
+        string s = "";
+
+        s += "0" + "|";
+        s += moula.ToString() + "|";
+        s += experience.ToString() + "|";
+        s += weapon.weaponLevel.ToString();
+
+        PlayerPrefs.SetString("SaveState", s);
+    }
+
+    //public void LoadState(Screen screen, LoadSceneMode mode){
+    public void LoadState(Scene s, LoadSceneMode mode){
+        //Si aucune sauvegarde trouvée, pas la peine de charger les données
+        if(!PlayerPrefs.HasKey("SaveState")){
+            return;
+        }
+            
+        string[] data = PlayerPrefs.GetString("SaveState").Split('|');
+
+        //attribue le skin choisi -> todo
+
+        //attribue la moula sauvegardée
+        moula = int.Parse(data[1]);
+
+        //attribue l'xp sauvegardée
+        experience = int.Parse(data[2]);
+
+        //attribue le niveau du joueur et applique les bonus de niveau en fonction de l'xp.
+        //Si niveau 1, on ne fait rien pour ne pas donner le bonus de level up (niveau 0 -> 1)
+        if(GetCurrentLevel() != 1){
+            player.SetLevel(GetCurrentLevel());
+        }
+
+        //attribue l'arme sauvegardée
+        weapon.SetWeaponLevel(int.Parse(data[3]));
+
+        //On téléporte le joueur au point de spawn de la carte
+        player.transform.position = GameObject.Find("SpawnPoint").transform.position;
+
+        Debug.Log("LoadState");
+    }
+}
