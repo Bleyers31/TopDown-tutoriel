@@ -12,7 +12,7 @@ public class Chest : Collectable
     {
         if(!collected){
             collected = true;
-            //Le coffre est ramassé, on change le sprite
+            //Le coffre est ramassé, on change le sprite du coffre
             GetComponent<SpriteRenderer>().sprite = emptyChest;
             GameManager.instance.moula += moullaAmount;
         }
