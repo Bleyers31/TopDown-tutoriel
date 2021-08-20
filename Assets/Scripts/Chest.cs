@@ -15,6 +15,7 @@ public class Chest : Collectable
             //Le coffre est ramassé, on change le sprite du coffre
             GetComponent<SpriteRenderer>().sprite = emptyChest;
             GameManager.instance.moula += moullaAmount;
+            GameManager.instance.ShowText("+" + moullaAmount + " moulla", 30, Color.yellow, transform.position, Vector3.up * 40, 1.0f);
         }
         
     }

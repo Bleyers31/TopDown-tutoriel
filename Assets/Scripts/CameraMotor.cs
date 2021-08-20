@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraMotor : MonoBehaviour
 {
-    public Transform lookAt; // Position du joueur
+    private Transform lookAt; // Position du joueur
     public float boundX = 0.15f; // Définition de la zone (axe X) où la caméra est fixe avant qu'elle ne suive le joueur
     public float boundY = 0.05f; // Définition de la zone (axe Y) où la caméra est fixe avant qu'elle ne suive le joueur
 

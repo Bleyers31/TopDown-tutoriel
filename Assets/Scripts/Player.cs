@@ -11,10 +11,13 @@ public class Player : Mover
     {
         base.Start();
         spriteRenderer = GetComponent<SpriteRenderer>();
+    }
 
-        //Si on change de scène, le joueur persiste afin que toutes ses références reste associés au GameManager
-        //Comme l'arme est un enfant du Player (dans la hierarchie des objets Unity), elle ne sera pas détruite non plus
-        DontDestroyOnLoad(gameObject);
+    //On met à jour le ratio de la barre d'hp du joueur après la perte d'hp
+    protected override void ReceiveDamage(Damage dmg)
+    {
+        base.ReceiveDamage(dmg);
+        GameManager.instance.OnHitPointChange();
     }
 
     //Permet au joueur de se déplacer. La classe Mover prend tout en charge
@@ -42,5 +45,22 @@ public class Player : Mover
         {
             OnLevelUp();
         }
+    }
+
+    public void Heal(int healingAmount){
+
+        if(hitPoint == maxHitPoint){
+            return;
+        }else{
+            hitPoint += healingAmount;
+            if(hitPoint > maxHitPoint){
+                hitPoint = maxHitPoint;
+            }
+        }
+
+        GameManager.instance.ShowText(healingAmount.ToString(), 30, Color.green, transform.position, Vector3.up * 40, 1.0f);
+
+        //Mise à jour du ratio de la barre de points de vie après le soin
+        GameManager.instance.OnHitPointChange();
     }
 }

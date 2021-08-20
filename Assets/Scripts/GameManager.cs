@@ -8,20 +8,27 @@ public class GameManager : MonoBehaviour
     //Permet de rendre ce GameManager accessible depuis nimporte quel autre script 
     //Pour l'appeller, faire GameManager.instance
     public static GameManager instance;
+
     private void Awake(){
-        //Si il y a déjà une instance de GameManager, on s'auto détruit pour qu'il ne reste que l'autre
+        //Si il y a déjà une instance de GameManager, on détruit les autres références car cela
+        //veut dire qu'elles sont déjà présentes et que ça les duplierait.
+        //C'est du au DontDestroyOnLoad, qui cherche à les faire suivre d'une scène à l'autre
         if(GameManager.instance != null){
             Destroy(gameObject);
+            Destroy(player.gameObject);
+            Destroy(floatingTextManager.gameObject);
+            Destroy(hud);
+            Destroy(menu);
             return;
         }
 
         //Si on souhaite supprimer les données sauvegardées : PlayerPrefs.DeleteAll();
-
         instance = this;
+
+        //On ne passe pas les paramètres des fonctions car le SceneManager 
+        //retrouve tous les paramètres et fait les liens automatiquement
         SceneManager.sceneLoaded += LoadState;
-        //Permet de faire suivre le GameManager quelque soit les scènes 
-        //sans avoir besoin de l'ajouter manuellement sur chaque
-        DontDestroyOnLoad(gameObject);
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     //Ressources
@@ -29,6 +36,10 @@ public class GameManager : MonoBehaviour
     public List<Sprite> weaponSprites;
     public List<int> weaponPrices;
     public List<int> xpTable;
+    //Référence à la barre de points de vie pour gérer l'affichage
+    public RectTransform hitPointBar;
+    public GameObject hud;
+    public GameObject menu;
 
     //Références
     public Player player;
@@ -44,6 +55,16 @@ public class GameManager : MonoBehaviour
 
     public void ShowText(string message, int fontSize, Color color, Vector3 position, Vector3 motion, float duration){
         floatingTextManager.Show(message, fontSize, color, position, motion, duration);
+    }
+
+
+    //Gestion de l'affichage de la barre d'hp et de sa mise à jour
+    public void OnHitPointChange(){
+        //On récupère le ratio entre hp courants et hp max
+        float ratio = (float)player.hitPoint / (float)player.maxHitPoint;
+
+        //On applique le ratio (0 à 1) pour savoir quel % de la barre doit être rempli
+        hitPointBar.localScale = new Vector3(1, ratio, 1);
     }
 
 
@@ -109,11 +130,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    
-
     public void OnLevelUp(){
         Debug.Log("LEVEL UP");
         player.OnLevelUp();
+        OnHitPointChange();
     }
 
     //Fonctions de sauvegarde
@@ -134,8 +154,12 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetString("SaveState", s);
     }
 
-    //public void LoadState(Screen screen, LoadSceneMode mode){
     public void LoadState(Scene s, LoadSceneMode mode){
+
+        //Permet de s'assurer que l'on ne charge qu'une fois une même scène si l'on y revient
+        //plusieurs fois. Sinon les valeurs (moulla, xp, ...) s'additionnent
+        SceneManager.sceneLoaded -= LoadState;
+
         //Si aucune sauvegarde trouvée, pas la peine de charger les données
         if(!PlayerPrefs.HasKey("SaveState")){
             return;
@@ -159,10 +183,11 @@ public class GameManager : MonoBehaviour
 
         //attribue l'arme sauvegardée
         weapon.SetWeaponLevel(int.Parse(data[3]));
+    }
 
+
+    public void OnSceneLoaded(Scene s, LoadSceneMode mode){
         //On téléporte le joueur au point de spawn de la carte
         player.transform.position = GameObject.Find("SpawnPoint").transform.position;
-
-        Debug.Log("LoadState");
     }
 }
