@@ -80,7 +80,7 @@ public class CharacterMenu : MonoBehaviour
         int currentLevel = GameManager.instance.GetCurrentLevel();
 
         if(currentLevel == GameManager.instance.xpTable.Count){
-            xpText.text = GameManager.instance.experience.ToString() + " points d'xp au total";
+            xpText.text = GameManager.instance.experience.ToString() + " xp";
             xpBar.localScale = Vector3.one; //rempli à 100%
         }else{
             //On récupère l'xp du level précédent et suivant afin de faire un ration pour remplir la barre en %
