@@ -21,8 +21,6 @@ public class EnemyHitbox : Collidable
 
             //On envoie l'objet de dégats vers celui qui va les recevoir
             collider2D.SendMessage("ReceiveDamage", dmg);
-
-            Debug.Log("L'ennemi " + transform.parent.name + " inflige " + damage + " au joueur");
         }
     }
 }

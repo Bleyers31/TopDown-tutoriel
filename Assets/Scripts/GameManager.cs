@@ -36,8 +36,8 @@ public class GameManager : MonoBehaviour
     public List<Sprite> weaponSprites;
     public List<int> weaponPrices;
     public List<int> xpTable;
-    //Référence à la barre de points de vie pour gérer l'affichage
     public RectTransform hitPointBar;
+    public Animator deathMenuAnimator;
     public GameObject hud;
     public GameObject menu;
 

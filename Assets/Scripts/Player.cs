@@ -6,6 +6,7 @@ using UnityEngine;
 public class Player : Mover 
 {
     private SpriteRenderer spriteRenderer;
+    private bool isAlive = true;
 
     protected override void Start()
     {
@@ -16,8 +17,18 @@ public class Player : Mover
     //On met à jour le ratio de la barre d'hp du joueur après la perte d'hp
     protected override void ReceiveDamage(Damage dmg)
     {
+        if(!isAlive){
+            return;
+        }
         base.ReceiveDamage(dmg);
         GameManager.instance.OnHitPointChange();
+    }
+
+    //Gestion de la mort du joueur
+    protected override void Death()
+    {
+        isAlive = false;
+        GameManager.instance.deathMenuAnimator.SetTrigger("Show");
     }
 
     //Permet au joueur de se déplacer. La classe Mover prend tout en charge
@@ -26,7 +37,10 @@ public class Player : Mover
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
 
-        UpdateMotor(new Vector3(x, y, 0));
+        //Si le joueur est mort, bloque ses mouvements
+        if(isAlive){
+            UpdateMotor(new Vector3(x, y, 0));
+        }
     }
 
     public void SwapSprite(int skinId){
