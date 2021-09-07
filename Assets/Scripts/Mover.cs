@@ -5,6 +5,8 @@ using UnityEngine;
 //Abstract : ne peut pas être utilisé tel quel -> Il faut qu'une classe fille en hérite
 public abstract class Mover : Fighter
 {
+    private Vector3 originalSize;
+
     protected BoxCollider2D boxCollider2D;
     private Vector3 moveDelta;
     private RaycastHit2D hit;
@@ -14,6 +16,7 @@ public abstract class Mover : Fighter
 
     protected virtual void Start() {
         boxCollider2D = GetComponent<BoxCollider2D>();    
+        originalSize = transform.localScale;
     }
 
     //Fonction qui gère tous les déplacements
@@ -24,9 +27,9 @@ public abstract class Mover : Fighter
         //Changer la position du sprite selon la direction où on se déplace
         if(moveDelta.x > 0){
             //Vector3.one équivaut à new Vector3(1, 1, 1)
-            transform.localScale = Vector3.one;
+            transform.localScale = originalSize;
         }else if(moveDelta.x < 0){
-            transform.localScale = new Vector3(-1, 1, 1);
+            transform.localScale = new Vector3(originalSize.x * -1, originalSize.y, originalSize.z);
         }
 
         //On ajoute une force (si il y en a une) afin de pousser l'entité dans une direction

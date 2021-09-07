@@ -77,4 +77,11 @@ public class Player : Mover
         //Mise à jour du ratio de la barre de points de vie après le soin
         GameManager.instance.OnHitPointChange();
     }
+
+    public void Respawn(){
+        Heal(maxHitPoint);
+        isAlive = true;
+        lastImmune = Time.time;
+        pushDirection = Vector3.zero;
+    }
 }

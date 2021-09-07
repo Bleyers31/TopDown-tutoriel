@@ -185,6 +185,12 @@ public class GameManager : MonoBehaviour
         weapon.SetWeaponLevel(int.Parse(data[3]));
     }
 
+    //Mort et respawn
+    public void Respawn(){
+        deathMenuAnimator.SetTrigger("Hide");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Main");
+        player.Respawn();
+    }
 
     public void OnSceneLoaded(Scene s, LoadSceneMode mode){
         //On téléporte le joueur au point de spawn de la carte
