@@ -28,8 +28,16 @@ public abstract class Mover : Fighter
         if(moveDelta.x > 0){
             //Vector3.one équivaut à new Vector3(1, 1, 1)
             transform.localScale = originalSize;
+            //On sauvegarde de quel côté regarde le joueur
+            if(gameObject.name == "Player"){
+                GameManager.instance.player.lookAt = "right";
+            }
+            
         }else if(moveDelta.x < 0){
             transform.localScale = new Vector3(originalSize.x * -1, originalSize.y, originalSize.z);
+            if(gameObject.name == "Player"){
+                GameManager.instance.player.lookAt = "left";
+            }
         }
 
         //On ajoute une force (si il y en a une) afin de pousser l'entité dans une direction
