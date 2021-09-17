@@ -7,11 +7,14 @@ public class Player : Mover
 {
     private SpriteRenderer spriteRenderer;
     private bool isAlive = true;
+    private bool isMoving;
+    public Animator anim;
 
     protected override void Start()
     {
         base.Start();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
     }
 
     //On met à jour le ratio de la barre d'hp du joueur après la perte d'hp

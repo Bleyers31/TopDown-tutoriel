@@ -31,13 +31,18 @@ public abstract class Mover : Fighter
             //On sauvegarde de quel côté regarde le joueur
             if(gameObject.name == "Player"){
                 GameManager.instance.player.lookAt = "right";
+                GameManager.instance.player.anim.SetBool("isMoving", true);
             }
-            
         }else if(moveDelta.x < 0){
             transform.localScale = new Vector3(originalSize.x * -1, originalSize.y, originalSize.z);
             if(gameObject.name == "Player"){
                 GameManager.instance.player.lookAt = "left";
+                GameManager.instance.player.anim.SetBool("isMoving", true);
             }
+        }
+
+        if(moveDelta.x == 0){
+            GameManager.instance.player.anim.SetBool("isMoving", false);
         }
 
         //On ajoute une force (si il y en a une) afin de pousser l'entité dans une direction

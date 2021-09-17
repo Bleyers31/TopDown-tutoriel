@@ -12,8 +12,8 @@ public class Fighter : MonoBehaviour
     protected float immuneTime = 1.0f;
     protected float lastImmune;
 
-    //Direction dans laquelle regarde le personnage
-    public string lookAt;
+    //Direction dans laquelle regarde le personnage (droite par défaut)
+    public string lookAt = "right";
 
     //Poussée
     protected Vector3 pushDirection;

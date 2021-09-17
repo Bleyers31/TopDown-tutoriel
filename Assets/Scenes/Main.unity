@@ -1474,7 +1474,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6311644655092424101, guid: 54e0f8d9ea6b0e04a9bc074b3efd5506, type: 3}
   m_PrefabInstance: {fileID: 6311644655320969934}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1899398066}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 97ffc262f7775bb4992a89ca2cf799f1, type: 3}
@@ -6035,6 +6035,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1845322753}
   m_CullTransparentMesh: 1
+--- !u!1 &1899398066 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6311644655819933304, guid: 54e0f8d9ea6b0e04a9bc074b3efd5506, type: 3}
+  m_PrefabInstance: {fileID: 6311644655320969934}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1899398072
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1899398066}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 312496b25d842af4a938e96c7d5aaee0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1944275218
 GameObject:
   m_ObjectHideFlags: 0
@@ -21366,6 +21390,18 @@ PrefabInstance:
     - target: {fileID: 3496595596549545301, guid: 54e0f8d9ea6b0e04a9bc074b3efd5506, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6311644655819933300, guid: 54e0f8d9ea6b0e04a9bc074b3efd5506, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 2127461698910248042, guid: ae72133dacba6ec4eb33ecde48f50e56, type: 3}
+    - target: {fileID: 6311644655819933303, guid: 54e0f8d9ea6b0e04a9bc074b3efd5506, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 6311644655819933303, guid: 54e0f8d9ea6b0e04a9bc074b3efd5506, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.44
       objectReference: {fileID: 0}
     - target: {fileID: 6311644655819933304, guid: 54e0f8d9ea6b0e04a9bc074b3efd5506, type: 3}
       propertyPath: m_Name
