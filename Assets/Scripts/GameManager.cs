@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
         }
 
         //Si on souhaite supprimer les données sauvegardées : PlayerPrefs.DeleteAll();
+        PlayerPrefs.DeleteAll();
         instance = this;
 
         //On ne passe pas les paramètres des fonctions car le SceneManager 

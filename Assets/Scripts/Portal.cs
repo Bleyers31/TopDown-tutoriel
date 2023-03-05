@@ -12,7 +12,10 @@ public string[] sceneNames;
             GameManager.instance.SaveState();
 
             //Téléporte le joueur vers une scène aléatoire parmis la liste
+            //Si on veut aller sur une scène précise, passer uniquement la scène dans la liste
             string sceneName = sceneNames[Random.Range(0, sceneNames.Length)];
+
+            Debug.Log("chargement de la scène : " + sceneName);
 
             //Charge la nouvelle scène
             UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);

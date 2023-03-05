@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6311644655092424101}
   - component: {fileID: 6311644655819933302}
   - component: {fileID: -5514801025523916630}
+  - component: {fileID: 1899398072}
   m_Layer: 9
   m_Name: Player
   m_TagString: Fighter
@@ -78,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 1722155083
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4018074224661003100, guid: b0fb08c28110c5b4e93a9a99c8dc4b41, type: 3}
+  m_Sprite: {fileID: 2127461698910248042, guid: ae72133dacba6ec4eb33ecde48f50e56, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -106,7 +107,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16161616, y: 0.16161616}
+    oldSize: {x: 0.69, y: 0.44}
     newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -130,8 +131,10 @@ MonoBehaviour:
   hitPoint: 10
   maxHitPoint: 10
   pushRecoverySpeed: 0.1
+  lookAt: right
   ySpeed: 0.75
   xSpeed: 1
+  anim: {fileID: 0}
 --- !u!114 &6311644655819933302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,8 +159,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69c241fd3941e84418baf97d7ccbd7fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellPosition: {fileID: 0}
-  spell: {fileID: 0}
+  spellPosition: {fileID: 6311644656568186254}
+  spell: {fileID: 4636530480337787396, guid: f6e5efc26cfb991448d32e8040f20238, type: 3}
+--- !u!95 &1899398072
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6311644655819933304}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 312496b25d842af4a938e96c7d5aaee0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6311644656568186353
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,8 +189,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6311644656568186254}
-  m_Layer: 9
-  m_Name: spawnPosition
+  m_Layer: 0
+  m_Name: spellSpawnPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -182,7 +204,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6311644656568186353}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.121, y: 0, z: 0}
+  m_LocalPosition: {x: 0.188, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3496595596549545301}

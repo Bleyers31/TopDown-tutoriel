@@ -4667,7 +4667,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1722155083
-  m_SortingLayer: 2
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 1839998147110866507, guid: b0fb08c28110c5b4e93a9a99c8dc4b41, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4863,7 +4863,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1722155083
-  m_SortingLayer: 2
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 1839998147110866507, guid: b0fb08c28110c5b4e93a9a99c8dc4b41, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -9948,6 +9948,7 @@ MonoBehaviour:
   hitPoint: 50
   maxHitPoint: 50
   pushRecoverySpeed: 0.2
+  lookAt: right
   ySpeed: 0.35
   xSpeed: 0.5
   xpValue: 50
@@ -10013,7 +10014,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1722155083
-  m_SortingLayer: 2
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -69871916218363647, guid: b0fb08c28110c5b4e93a9a99c8dc4b41, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -10326,7 +10327,7 @@ MonoBehaviour:
     minNormalAngle: 0
     maxNormalAngle: 0
   sceneNames:
-  - Main
+  - dungeon_2
 --- !u!61 &2006456698
 BoxCollider2D:
   m_ObjectHideFlags: 0

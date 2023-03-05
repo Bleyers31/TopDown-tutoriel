@@ -5,13 +5,12 @@ using UnityEngine;
 public class FireBall : Collidable
 {
     public float fireBallSpeed;
-    private Rigidbody2D rigidbody2D;
+    private new Rigidbody2D rigidbody2D;
     private BoxCollider2D boxCollider2D;
     public int damagePoint;
     public float pushForce;
-    private float cooldown;
+    public float cooldown;
     private float lastCast;
-    private bool fireBallLaunched;
 
    protected override void Start() {
         base.Start();
@@ -48,7 +47,6 @@ public class FireBall : Collidable
             Debug.Log("Collision avec une entité non vivante " + collider2D.tag);
         }
 
-        fireBallLaunched = false;
         //Autodestriction
         Destroy(gameObject);
     }

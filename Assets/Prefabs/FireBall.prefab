@@ -135,6 +135,7 @@ MonoBehaviour:
   fireBallSpeed: 2.5
   damagePoint: 5
   pushForce: 1
+  cooldown: 1.5
 --- !u!50 &2595853489143341529
 Rigidbody2D:
   serializedVersion: 4
