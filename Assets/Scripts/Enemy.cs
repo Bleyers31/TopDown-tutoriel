@@ -20,6 +20,9 @@ public class Enemy : Mover
     private BoxCollider2D hitbox;
     private Collider2D[] hits = new Collider2D[10]; 
 
+    //Barre de vie de l'ennemi
+    public EnemyHealthBar enemyHealthBar;
+
 
     protected override void Start() {
         base.Start();
@@ -29,6 +32,8 @@ public class Enemy : Mover
         startingPosition = transform.position;
         //On récupère la hitbox du BoxCollider enfant de l'ennemi
         hitbox = transform.GetChild(0).GetComponent<BoxCollider2D>();
+        //On remplit la barre de vie
+        enemyHealthBar.SetHealth(hitPoint, maxHitPoint);
     }
 
     private void FixedUpdate() {
@@ -79,6 +84,14 @@ public class Enemy : Mover
         Destroy(gameObject);
         GameManager.instance.GrantXp(xpValue);
         GameManager.instance.ShowText("+" + xpValue + " xp", 30, Color.magenta, transform.position, Vector3.up * 40, 1.0f);
+    }
+
+    protected override void ReceiveDamage(Damage dmg)
+    {
+        base.ReceiveDamage(dmg);
+        
+        //On actualise la barre de vie
+        enemyHealthBar.SetHealth(hitPoint, maxHitPoint);
     }
 
 }

@@ -170,6 +170,27 @@ TextureImporter:
   - first:
       213: 7555821830959073814
     second: enemy_3
+  - first:
+      213: -6190716609726613716
+    second: weapon_7
+  - first:
+      213: 4873919324978898756
+    second: weapon_8
+  - first:
+      213: 310630301815266069
+    second: weapon_9
+  - first:
+      213: 703316215228858992
+    second: dagger_0
+  - first:
+      213: -5206644523654691916
+    second: dagger_1
+  - first:
+      213: 6582207593987013538
+    second: dagger_2
+  - first:
+      213: 2114176695594709982
+    second: dagger_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -1695,7 +1716,7 @@ TextureImporter:
         width: 16
         height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1703,6 +1724,153 @@ TextureImporter:
       bones: []
       spriteID: 61a057c3cebabd860800000000000000
       internalID: 7555821830959073814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: weapon_7
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 161
+        width: 10
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2772241b08261aa0800000000000000
+      internalID: -6190716609726613716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: weapon_8
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 161
+        width: 10
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 447674d8dc3a3a340800000000000000
+      internalID: 4873919324978898756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: weapon_9
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 161
+        width: 10
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51bdb2c1d949f4400800000000000000
+      internalID: 310630301815266069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dagger_0
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 145
+        width: 6
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0720d751f5ea2c900800000000000000
+      internalID: 703316215228858992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dagger_1
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 145
+        width: 6
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b344d744684eb7b0800000000000000
+      internalID: -5206644523654691916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dagger_2
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 145
+        width: 6
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ab7975cee2b85b50800000000000000
+      internalID: 6582207593987013538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dagger_3
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 145
+        width: 6
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed3f455d080175d10800000000000000
+      internalID: 2114176695594709982
       vertices: []
       indices: 
       edges: []

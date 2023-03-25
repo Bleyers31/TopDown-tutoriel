@@ -18,7 +18,34 @@ public class CharacterMenu : MonoBehaviour
     public Image characterSelectionSprite;
     public Image weaponSprite;
     public RectTransform xpBar;
+    public Button buttonShow;
+    public Button buttonHide;
 
+    private void Update() {
+        //Affiche ou cache le menu quand on appuie sur TAB
+        //On passe par les même méthodes que si on clique sur le bouton de l'ATH
+        if(Input.GetKeyDown(KeyCode.Tab)){
+            //Si le alpha du canvas group vaut 0 : le menu est actuellement masqué
+            if(this.GetComponentInParent<CanvasGroup>().alpha != 0){
+                buttonHide.onClick.Invoke();
+            }else{
+                buttonShow.onClick.Invoke();
+            }
+        }
+
+        /*
+        if(Input.GetKeyDown(KeyCode.Tab)){
+            
+            if(animator.GetBool("show")){
+                animator.SetTrigger("hide");
+            }else{
+                animator.SetTrigger("show");
+            }
+
+            UpdateMenu();
+            
+        }*/
+    }
 
     //Sélection du personnage. True si droite, false si gauche
     public void OnArrowClick(bool right){

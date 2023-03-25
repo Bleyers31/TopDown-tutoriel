@@ -132,7 +132,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void OnLevelUp(){
-        Debug.Log("LEVEL UP");
+        ShowText("LEVEL UP !", 30, Color.cyan, transform.position, Vector3.up * 40, 1.0f);
         player.OnLevelUp();
         OnHitPointChange();
     }

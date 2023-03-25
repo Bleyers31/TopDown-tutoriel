@@ -5,8 +5,8 @@ using UnityEngine;
 public class Weapon : Collidable
 {
     // Structure des dégats
-    public int[] damagePoint = {1,2,3,4,5,6,7};
-    public float[] pushForce = {2.0f, 2.5f, 3.0f, 3.5f, 4.0f, 5.0f, 6.0f};
+    public int[] damagePoint = {2,4,6,8,10,12,14,16,18,20};
+    public float[] pushForce = {2.0f, 2.5f, 3.0f, 3.5f, 4.0f, 4.5f, 5.0f, 5.5f, 6.0f, 6.5f};
 
     //Upgrade
     public int weaponLevel = 0;
