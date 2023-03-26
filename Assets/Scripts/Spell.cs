@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireBall : Collidable
+public class Spell : Collidable
 {
     public float fireBallSpeed;
     private new Rigidbody2D rigidbody2D;
     private BoxCollider2D boxCollider2D;
     public int damagePoint;
+    public int manaCost;
     public float pushForce;
     public float cooldown;
     private float lastCast;
@@ -25,7 +26,7 @@ public class FireBall : Collidable
         
     }
 
-    //On redéfinit le comportement d'une collision dans le cas où c'est l'arme qui touche quelque chose
+    //On redéfinit le comportement d'une collision (effet pouvant être différent d'une arme)
     protected override void OnCollide(Collider2D collider2D)
     {
         if(collider2D.tag == "Fighter"){
@@ -47,7 +48,7 @@ public class FireBall : Collidable
             Debug.Log("Collision avec une entité non vivante " + collider2D.tag);
         }
 
-        //Autodestriction
+        //Autodestruction
         Destroy(gameObject);
     }
 

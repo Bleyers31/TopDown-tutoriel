@@ -7,6 +7,8 @@ public class Fighter : MonoBehaviour
     public int hitPoint = 10;
     public int maxHitPoint = 10;
     public float pushRecoverySpeed = 0.2f;
+    public int manaPoint = 10;
+    public int maxManaPoint = 10;
 
     //Durée invincibilité après un coup
     protected float immuneTime = 1.0f;
@@ -33,6 +35,16 @@ public class Fighter : MonoBehaviour
                 Death();
             }
         }
+    }
+
+    //Tous les combattant peuvent consommer du mana
+    public virtual void UseMana(int manaSpent){
+        manaPoint -= manaSpent;
+    }
+
+    //Tous les combattant peuvent régénrer du mana
+    public virtual void RegenMana(int manaRecovered){
+        manaPoint += manaRecovered;
     }
 
     protected virtual void Death(){

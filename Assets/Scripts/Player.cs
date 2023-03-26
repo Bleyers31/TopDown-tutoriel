@@ -27,6 +27,20 @@ public class Player : Mover
         GameManager.instance.OnHitPointChange();
     }
 
+    //On met à jour le ratio de la barre de mana du joueur après le lancement du sort
+    public override void UseMana(int manaSpent)
+    {
+        base.UseMana(manaSpent);
+        GameManager.instance.OnManaChange();
+    }
+
+    //On met à jour le ratio de la barre de mana du joueur après en avoir récupéré
+    public override void RegenMana(int manaRecovered)
+    {
+        base.RegenMana(manaRecovered);
+        GameManager.instance.OnManaChange();
+    }
+
     //Gestion de la mort du joueur
     protected override void Death()
     {

@@ -131,6 +131,8 @@ MonoBehaviour:
   hitPoint: 10
   maxHitPoint: 10
   pushRecoverySpeed: 0.1
+  manaPoint: 10
+  maxManaPoint: 10
   lookAt: right
   ySpeed: 1
   xSpeed: 1
@@ -160,7 +162,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spellPosition: {fileID: 6311644656568186254}
-  spell: {fileID: 4636530480337787396, guid: f6e5efc26cfb991448d32e8040f20238, type: 3}
+  spell: {fileID: 2584475996065445613, guid: 0a59054aad3360d48be118d1275e7aa6, type: 3}
+  player: {fileID: 6311644655092424101}
 --- !u!95 &1899398072
 Animator:
   serializedVersion: 3
@@ -348,15 +351,18 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
-  damagePoint: 01000000020000000300000004000000050000000600000007000000
+  damagePoint: 020000000400000006000000080000000a0000000c0000000e000000100000001200000014000000
   pushForce:
   - 2
   - 2.5
   - 3
   - 3.5
   - 4
+  - 4.5
   - 5
+  - 5.5
   - 6
+  - 6.5
   weaponLevel: 0
   spriteRenderer: {fileID: 6311644656617039932}
 --- !u!95 &6311644656617039933

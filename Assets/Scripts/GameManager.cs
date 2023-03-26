@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
     public List<int> weaponPrices;
     public List<int> xpTable;
     public RectTransform hitPointBar;
+    public RectTransform manaBar;
     public Animator deathMenuAnimator;
     public GameObject hud;
     public GameObject menu;
@@ -66,6 +67,15 @@ public class GameManager : MonoBehaviour
 
         //On applique le ratio (0 à 1) pour savoir quel % de la barre doit être rempli
         hitPointBar.localScale = new Vector3(1, ratio, 1);
+    }
+
+    //Gestion de l'affichage de la barre de mana et de sa mise à jour
+    public void OnManaChange(){
+        //On récupère le ratio entre mana courant et mana max
+        float ratio = (float)player.manaPoint / (float)player.maxManaPoint;
+
+        //On applique le ratio (0 à 1) pour savoir quel % de la barre doit être rempli
+        manaBar.localScale = new Vector3(1, ratio, 1);
     }
 
 
