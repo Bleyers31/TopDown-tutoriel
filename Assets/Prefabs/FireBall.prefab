@@ -134,9 +134,9 @@ MonoBehaviour:
     maxNormalAngle: 0
   fireBallSpeed: 2
   damagePoint: 2
-  manaCost: 8
+  manaCost: 5
   pushForce: 1
-  cooldown: 2
+  cooldown: 0.5
 --- !u!50 &2595853489143341529
 Rigidbody2D:
   serializedVersion: 4

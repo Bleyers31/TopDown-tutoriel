@@ -6246,68 +6246,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 682614265}
   m_CullTransparentMesh: 1
---- !u!1 &720403751
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 720403753}
-  - component: {fileID: 720403752}
-  m_Layer: 0
-  m_Name: FireballSpell
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &720403752
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 720403751}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37973bbf6a120e2439bc80fcd3a2a4f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  filter2D:
-    useTriggers: 0
-    useLayerMask: 0
-    useDepth: 0
-    useOutsideDepth: 0
-    useNormalAngle: 0
-    useOutsideNormalAngle: 0
-    layerMask:
-      serializedVersion: 2
-      m_Bits: 0
-    minDepth: 0
-    maxDepth: 0
-    minNormalAngle: 0
-    maxNormalAngle: 0
-  fireBallSpeed: 5
-  damagePoint: 2
-  manaCost: 2
-  pushForce: 1
-  cooldown: 3
---- !u!4 &720403753
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 720403751}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 140.71474, y: 145.48955, z: -136.0627}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 15
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &747428080
 GameObject:
   m_ObjectHideFlags: 0
@@ -10347,7 +10285,7 @@ MonoBehaviour:
   weaponPrices: 0f0000001e0000002d0000003c0000004b00000064000000
   xpTable: 050000000a0000000f00000014000000190000001e00000023000000280000002d00000032000000
   hitPointBar: {fileID: 1285262479}
-  manaBar: {fileID: 0}
+  manaBar: {fileID: 682614266}
   deathMenuAnimator: {fileID: 1201280071}
   hud: {fileID: 764122236}
   menu: {fileID: 1181012890}
@@ -83112,6 +83050,26 @@ PrefabInstance:
     - target: {fileID: -5514801025523916630, guid: 54e0f8d9ea6b0e04a9bc074b3efd5506, type: 3}
       propertyPath: spell
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -5514801025523916630, guid: 54e0f8d9ea6b0e04a9bc074b3efd5506, type: 3}
+      propertyPath: manaRegenCooldown
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: -5514801025523916630, guid: 54e0f8d9ea6b0e04a9bc074b3efd5506, type: 3}
+      propertyPath: spells.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5514801025523916630, guid: 54e0f8d9ea6b0e04a9bc074b3efd5506, type: 3}
+      propertyPath: lastCasts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5514801025523916630, guid: 54e0f8d9ea6b0e04a9bc074b3efd5506, type: 3}
+      propertyPath: spells.Array.data[0]
+      value: 
+      objectReference: {fileID: -7806566737077667800, guid: f6e5efc26cfb991448d32e8040f20238, type: 3}
+    - target: {fileID: -5514801025523916630, guid: 54e0f8d9ea6b0e04a9bc074b3efd5506, type: 3}
+      propertyPath: naturalManaRegenAmount
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3496595596549545301, guid: 54e0f8d9ea6b0e04a9bc074b3efd5506, type: 3}
       propertyPath: m_RootOrder

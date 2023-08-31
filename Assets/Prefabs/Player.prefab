@@ -162,8 +162,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spellPosition: {fileID: 6311644656568186254}
-  spell: {fileID: 2584475996065445613, guid: 0a59054aad3360d48be118d1275e7aa6, type: 3}
+  spells: []
+  lastCasts: []
   player: {fileID: 6311644655092424101}
+  naturalManaRegenAmount: 0
+  lastTickManaRegen: 0
+  manaRegenCooldown: 0
 --- !u!95 &1899398072
 Animator:
   serializedVersion: 3
@@ -293,7 +297,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.1, y: 0.3}
+  m_Size: {x: 0.1010101, y: 0.3030303}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -317,7 +321,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.1010101, y: 0.3030303}
-    newSize: {x: 0.1, y: 0.3}
+    newSize: {x: 0.1010101, y: 0.3030303}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0

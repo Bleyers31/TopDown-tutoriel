@@ -16,7 +16,7 @@ public class PlayerSpells : MonoBehaviour
 
     private void Update() {
         if(Input.GetKeyDown(KeyCode.A)){
-            //On check si le cooldown pour refaire un swing est revenu
+            //On check si le cooldown pour refaire un cast est revenu
             if(Time.time - lastCasts[0] > spells[0].cooldown){
                 //On vérifie si le joueur a assez de mana pour lancer le sort
                 if(spells[0].manaCost <= player.manaPoint){
