@@ -73,8 +73,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1722155083
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -133,12 +133,14 @@ MonoBehaviour:
     minNormalAngle: 0
     maxNormalAngle: 0
   spellIcon: {fileID: 21300000, guid: 9352d17f07c44b146ba27777a18a2cdd, type: 3}
-  projectileSpeed: 25
+  projectileSpeed: 1
   damagePoint: 10
   manaCost: 0
   pushForce: 4
-  cooldown: 10
-  duration: 0.5
+  cooldown: 1
+  duration: 0.3
+  momentOfCast: 0
+  canPierce: 1
 --- !u!50 &-7992579869591984376
 Rigidbody2D:
   serializedVersion: 4

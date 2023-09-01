@@ -83391,18 +83391,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -5514801025523916630, guid: 54e0f8d9ea6b0e04a9bc074b3efd5506, type: 3}
-      propertyPath: spells.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: -5514801025523916630, guid: 54e0f8d9ea6b0e04a9bc074b3efd5506, type: 3}
-      propertyPath: lastCasts.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: -5514801025523916630, guid: 54e0f8d9ea6b0e04a9bc074b3efd5506, type: 3}
-      propertyPath: spells.Array.data[1]
-      value: 
-      objectReference: {fileID: 2896751720457537489, guid: 0d8a6e02573ae5f479a78cc39d0ac1e6, type: 3}
     - target: {fileID: 3496595596549545301, guid: 54e0f8d9ea6b0e04a9bc074b3efd5506, type: 3}
       propertyPath: m_RootOrder
       value: 3

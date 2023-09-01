@@ -16,6 +16,7 @@ public class Spell : Collidable
     private float lastCast;
     public float duration; //Durée de vie à l'écran du spell
     public float momentOfCast;
+    public bool canPierce; //Possibilité de toucher plusieurs ennemis à la fois en un cast
 
    protected override void Start() {
         base.Start();
@@ -48,19 +49,29 @@ public class Spell : Collidable
                 //On envoie l'objet de dégats vers celui qui va les recevoir
                 collider2D.SendMessage("ReceiveDamage", dmg);
 
-                Debug.Log("Collision et dégâts appliqué à l'entité : " + collider2D.tag);
+                Debug.Log(dmg + " dégâts sont appliqué à l'entité : " + collider2D.name);
+
+                //Autodestruction si on s'arrète au premier ennemi touché
+                if(!canPierce){
+                    Debug.Log("Destruction on collide");
+                    Destroy(gameObject);
+                }
+                
             }
         }else{
-            Debug.Log("Collision avec une entité non vivante : " + collider2D.tag);
+            Debug.Log("Collision avec une entité non vivante : " + collider2D.name);
+            //Autodestruction si on s'arrète au premier ennemi touché
+            if(!canPierce){
+                Debug.Log("Destruction on collide");
+                Destroy(gameObject);
+            }
         }
-
-        //Autodestruction
-        Destroy(gameObject);
     }
 
     private void FixedUpdate() {
         //Si le spell dépasse sa durée de vie max, on le détruit
         if(Time.time - momentOfCast > duration){
+            Debug.Log("Destruction car durée de vie dépassée");
             Destroy(gameObject);
         }
     }

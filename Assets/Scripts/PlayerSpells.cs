@@ -20,7 +20,6 @@ public class PlayerSpells : MonoBehaviour
             //Premier Spell
             if(Input.GetKeyDown(KeyCode.Alpha1) && spells.Count >= 1){
                 //On check si le cooldown pour refaire un cast est revenu
-                Debug.Log("TIME ? " + Time.time);
                 if(Time.time - lastCasts[0] > spells[0].cooldown){
                     //On vérifie si le joueur a assez de mana pour lancer le sort
                     if(spells[0].manaCost <= player.manaPoint){

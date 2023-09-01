@@ -164,8 +164,10 @@ MonoBehaviour:
   spellPosition: {fileID: 6311644656568186254}
   spells:
   - {fileID: -7806566737077667800, guid: f6e5efc26cfb991448d32e8040f20238, type: 3}
+  - {fileID: 2896751720457537489, guid: 0d8a6e02573ae5f479a78cc39d0ac1e6, type: 3}
   lastCasts:
-  - 0
+  - -20
+  - -20
   player: {fileID: 6311644655092424101}
   naturalManaRegenAmount: 1
   lastTickManaRegen: 0
