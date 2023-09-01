@@ -15,17 +15,60 @@ public class PlayerSpells : MonoBehaviour
    public float manaRegenCooldown;
 
     private void Update() {
-        if(Input.GetKeyDown(KeyCode.A)){
-            //On check si le cooldown pour refaire un cast est revenu
-            if(Time.time - lastCasts[0] > spells[0].cooldown){
-                //On vérifie si le joueur a assez de mana pour lancer le sort
-                if(spells[0].manaCost <= player.manaPoint){
-                    Instantiate(spells[0], spellPosition.position, spellPosition.rotation);
-                    player.UseMana(spells[0].manaCost);
-                    lastCasts[0] = Time.time;
-                }
-            }       
-        }
+        //Si aucun spell n'est attribué, lancement impossible
+        if(spells.Count != 0){
+            //Premier Spell
+            if(Input.GetKeyDown(KeyCode.Alpha1) && spells.Count >= 1){
+                //On check si le cooldown pour refaire un cast est revenu
+                Debug.Log("TIME ? " + Time.time);
+                if(Time.time - lastCasts[0] > spells[0].cooldown){
+                    //On vérifie si le joueur a assez de mana pour lancer le sort
+                    if(spells[0].manaCost <= player.manaPoint){
+                        Instantiate(spells[0], spellPosition.position, spellPosition.rotation);
+                        player.UseMana(spells[0].manaCost);
+                        lastCasts[0] = Time.time;
+                    }
+                }       
+            }
+
+            //Second Spell
+            if(Input.GetKeyDown(KeyCode.Alpha2) && spells.Count >= 2){
+                //On check si le cooldown pour refaire un cast est revenu
+                if(Time.time - lastCasts[1] > spells[1].cooldown){
+                    //On vérifie si le joueur a assez de mana pour lancer le sort
+                    if(spells[1].manaCost <= player.manaPoint){
+                        Instantiate(spells[1], spellPosition.position, spellPosition.rotation);
+                        player.UseMana(spells[1].manaCost);
+                        lastCasts[1] = Time.time;
+                    }
+                }       
+            }
+
+            //Troisième Spell
+            if(Input.GetKeyDown(KeyCode.Alpha3) && spells.Count >= 3){
+                //On check si le cooldown pour refaire un cast est revenu
+                if(Time.time - lastCasts[2] > spells[2].cooldown){
+                    //On vérifie si le joueur a assez de mana pour lancer le sort
+                    if(spells[2].manaCost <= player.manaPoint){
+                        Instantiate(spells[2], spellPosition.position, spellPosition.rotation);
+                        player.UseMana(spells[2].manaCost);
+                        lastCasts[2] = Time.time;
+                    }
+                }       
+            }
+
+            if(Input.GetKeyDown(KeyCode.Alpha4) && spells.Count >= 4){
+                //On check si le cooldown pour refaire un cast est revenu
+                if(Time.time - lastCasts[3] > spells[3].cooldown){
+                    //On vérifie si le joueur a assez de mana pour lancer le sort
+                    if(spells[3].manaCost <= player.manaPoint){
+                        Instantiate(spells[3], spellPosition.position, spellPosition.rotation);
+                        player.UseMana(spells[3].manaCost);
+                        lastCasts[3] = Time.time;
+                    }
+                }       
+            }
+        }    
 
         ApplyNaturalManaRegen();
 

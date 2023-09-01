@@ -162,12 +162,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spellPosition: {fileID: 6311644656568186254}
-  spells: []
-  lastCasts: []
+  spells:
+  - {fileID: -7806566737077667800, guid: f6e5efc26cfb991448d32e8040f20238, type: 3}
+  lastCasts:
+  - 0
   player: {fileID: 6311644655092424101}
-  naturalManaRegenAmount: 0
+  naturalManaRegenAmount: 1
   lastTickManaRegen: 0
-  manaRegenCooldown: 0
+  manaRegenCooldown: 0.3
 --- !u!95 &1899398072
 Animator:
   serializedVersion: 3
